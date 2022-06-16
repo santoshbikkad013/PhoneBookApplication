@@ -31,7 +31,12 @@ public class ContactServiceImpl implements ContactServiceI {
 	public List<Contact> getAllContact() {
 		List<Contact> contacts = contactRepository.findAll();
 		
-		return contacts;
+		if (contacts !=null ) {
+			return null;
+		}else {
+			return null;
+		}
+		
 	}
 
 }
