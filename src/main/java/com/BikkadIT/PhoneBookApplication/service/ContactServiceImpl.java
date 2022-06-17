@@ -32,11 +32,17 @@ public class ContactServiceImpl implements ContactServiceI {
 		List<Contact> contacts = contactRepository.findAll();
 		
 		if (contacts !=null ) {
-			return null;
+			return contacts;
 		}else {
 			return null;
 		}
 		
+	}
+
+	@Override
+	public Contact getContactById(Integer cid) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
