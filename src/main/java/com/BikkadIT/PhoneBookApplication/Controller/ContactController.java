@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,11 +58,20 @@ public class ContactController {
 		}else {
 			String s="Record not found";
 			return new ResponseEntity(s,HttpStatus.BAD_REQUEST);
-		}
-		
-		
+		}	
 	}
 	
+	@PutMapping("/updateContact")
+	public ResponseEntity<String> updateContact(Contact contact) {
+	
+		boolean contact2 = contactServiceI.UpdateContact(contact);
+		if(contact2 ==true) {
+			return new ResponseEntity<String>("Contact Updated SUccessfully",HttpStatus.OK);
+		}else {
+			String msg="Contact not Updated";
+		return new ResponseEntity<String>(msg,HttpStatus.BAD_REQUEST);
+		}
+	}
 	
 	
 }
