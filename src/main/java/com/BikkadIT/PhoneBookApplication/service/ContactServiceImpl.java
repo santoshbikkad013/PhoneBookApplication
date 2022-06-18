@@ -64,14 +64,15 @@ public class ContactServiceImpl implements ContactServiceI {
 
 	@Override
 	public boolean deleteById(Integer cid) {
-		contactRepository.deleteById(cid);
+		
 		
 		Optional<Contact> findById = contactRepository.findById(cid);
 		if(findById.isPresent()) {
-			return false;
+			contactRepository.deleteById(cid);
+			return true;
 		}else {
 		
-		return true;
+		return false;
 		}
 	}
 }
